@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>UI Code</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+ <style>
+  *,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+// Card
+.card__wrapper {
+  display: grid;
+  margin: 0 auto;
+}
+.carddiv {
+  text-align: center;
+}
+img {
+  width:100%;
+}
+.lis_style {
+  padding-inline-start:0;
+  font-size: 15px;
+}
+.card {
+  background-color: $card-background;
+  border-radius: 6px;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.2));
+  padding: $default-spacing;
+  text-align: center;
+  height: 350px;  
+  width:250px;
+}
+.card-bg {
+  background: #fff;
+  max-width: 200px;
+  margin:2px;
+  padding-top: 10px;
+}
+.card__image {
+  /*border-radius: 50%;*/
+  background: #eee;
+}
+
+.card__title {
+  font-size: 18px;
+  color: #0000ffd9;
+  text-align: center;
+}
+
+.card__cta {
+  background-color: $card-cta-background;
+  color: $card-cta-color;
+  padding: 6px 85px;
+  margin-top:10%; 
+  border:none;
+  cursor:pointer;
+}
+.btn:hover {
+  background: green;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 450px) {
+  .card__wrapper {
+    max-width: 450px;
+    grid-template-columns:   repeat(1, 1fr);
+    grid-gap: 5px;
+  }  
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .card__wrapper {
+    max-width: 600px;
+    grid-template-columns:   repeat(2, 1fr);  
+    grid-gap: 5px;
+  }  
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 700px) {
+  .card__wrapper {
+    max-width: 700px;
+    grid-template-columns:   repeat(3, 1fr);  
+    grid-gap: 5px;
+  }  
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .card__wrapper {
+    max-width: 1024px;
+    grid-template-columns:   repeat(4, 1fr);
+    grid-gap: 10px;
+  }  
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .card__wrapper {
+    max-width: 1024px;
+    grid-template-columns:   repeat(4, 1fr);
+    grid-gap: 10px;  
+  }  
+}
+
+
+  ul {
+    display:flex;list-style: none;padding-inline-start:0;
+  }
+  ul li {
+    padding:1% 10%;
+  }
+  button {
+    color: #000;
+    background-color: #4fc31f75;
+    border-color: #42d207ad;
+    padding: 0px 18px !important;
+  }
+</style>
+</head>
+<body>
+<div class="container" style="background: #eee;">
+  
+  <div class="row" style="padding:1%;">
+   <h2 class="col-md-12 text-left">SpaceX Launch Programs</h2>
+   <div class="col-md-3" style="background: #fff;">
+   <h3 class="text-left">Filters</h3>
+   <p class="text-center" style="border-bottom: 1px solid #8080806b;">Launch Year</p>
+   <ul>
+    <li><button type="button" class="btn" id="year2006">2006</button></li>
+    <li><button type="button" class="btn" id="year2007">2007</button></li>
+  </ul>
+  <ul>
+    <li><button type="button" class="btn" id="year2008">2008</button></li>
+    <li><button type="button" class="btn" id="year2009">2009</button></li>
+  </ul>
+  <ul>
+    <li><button type="button" class="btn" id="year2010">2010</button></li>
+    <li><button type="button" class="btn" id="year2011">2011</button></li>
+  </ul>
+  <ul>
+    <li><button type="button" class="btn" id="year2012">2012</button></li>
+    <li><button type="button" class="btn" id="year2013">2013</button></li>
+  </ul>
+  <ul>
+    <li><button type="button" class="btn" id="year2014">2014</button></li>
+    <li><button type="button" class="btn" id="year2015">2015</button></li>
+  </ul>
+  <ul>
+    <li><button type="button" class="btn" id="year2016">2016</button></li>
+    <li><button type="button" class="btn" id="year2017">2017</button></li>
+  </ul>
+  <ul>
+    <li><button type="button" class="btn" id="year2018">2018</button></li>
+    <li><button type="button" class="btn" id="year2019">2019</button></li>
+  </ul>
+  <ul>
+    <li><button type="button" class="btn" id="year2020">2020</button></li>
+  </ul>
+  <p class="text-center" style="border-bottom: 1px solid #8080806b;">Successful Launch</p>
+   <ul>
+    <li><button type="button" class="btn" id="lauTrue">True</button></li>
+    <li><button type="button" class="btn" id="lauFalse">False</button></li>
+  </ul>
+  <p class="text-center" style="border-bottom: 1px solid #8080806b;">Successful Landing</p>
+  <ul>
+    <li><button type="button" class="btn" id="lanTrue">True</button></li>
+    <li><button type="button" class="btn" id="lanFalse">False</button></li>
+  </ul>
+   </div>
+   <div class="col-md-9">
+    <!-- <h5> --- Filter ---</h5> -->
+    <div class="text-center" id="noData" style="background:#fff;"> </div>
+     <!-- <main class="card__wrapper"> </main> -->
+     <div class="row carddiv">
+     </div>
+   </div>
+  </div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/custom.js"></script>
+<script>
+  $(document).ready(function(){
+          $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2016",
+        success: function(res){
+          console.log(res);
+        }
+      });
+
+  });
+
+$("#year2006").click(function(){
+
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2006",
+        success: function(res){
+          console.log(res);
+          if(res.length == 0) {
+            $(".carddiv").text("No Data");
+          }
+        }
+      });
+    });
+  $("#year2007").click(function(){
+   $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2007",
+        success: function(res){
+          console.log(res);
+           if(res.length == 0) {
+            $(".carddiv").text("No Data");
+          }
+          else {
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+          }
+            
+        }
+      });
+    });
+  $("#year2008").click(function(){
+  $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2008",
+        success: function(res){
+          console.log(res);
+           if(res.length == 0) {
+            $(".carddiv").text("No Data");
+          }
+          else {
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+          }
+        }
+      });
+    });
+  $("#year2009").click(function(){
+  $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2009",
+        success: function(res){
+          console.log(res);
+            if(res.length == 0) {
+            $(".carddiv").text("No Data");
+          }
+          else {
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+          }
+        }
+      });
+    });
+  $("#year2010").click(function(){
+   $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2010",
+        success: function(res){
+          console.log(res);
+           if(res.length == 0) {
+            $(".carddiv").text("No Data");
+          }
+          else {
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+          }
+        }
+      });
+    });
+  $("#year2011").click(function(){
+   $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2011",
+        success: function(res){
+          console.log(res);
+           if(res.length == 0) {
+            $(".carddiv").text("No Data");
+          }
+          else {
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+          }
+        }
+      });
+    });
+  $("#year2012").click(function(){
+  $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2012",
+        success: function(res){
+          console.log(res);
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+        }
+      });
+    });
+  $("#year2013").click(function(){
+  $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2013",
+        success: function(res){
+          console.log(res);
+          if(res.length == 0) {
+            $(".carddiv").text("No Data");
+          }
+          else {
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+          }
+        }
+      });
+    });
+  $("#year2014").click(function(){
+   $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2014",
+        success: function(res){
+          console.log(res);
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+        }
+      });
+    });
+  $("#year2015").click(function(){
+   $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2015",
+        success: function(res){
+          console.log(res);
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+        }
+      });
+    });
+  $("#year2016").click(function(){
+  $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2016",
+        success: function(res){
+          console.log(res);
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+        }
+      });
+    });
+  $("#year2017").click(function(){
+   $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2017",
+        success: function(res){
+          console.log(res);
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+        }
+      });
+    });
+  $("#year2018").click(function(){
+   $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2018",
+        success: function(res){
+          console.log(res);
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+        }
+      });
+    });
+ $("#year2019").click(function(){
+   $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2019",
+        success: function(res){
+          console.log(res);
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+        }
+      });
+    });
+  $("#year2020").click(function(){
+    // $('#year2020').css("background","green");
+    $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2020",
+        success: function(res){
+          console.log(res);
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+        }
+      });
+    });
+   $("#lauTrue").click(function(){
+    // $('#year2020').css("background","green");
+    $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true",
+        success: function(res){
+          console.log(res);
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+        }
+      });
+    });
+    $("#lauFalse").click(function(){
+    // $('#year2020').css("background","green");
+    $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=false",
+        success: function(res){
+          console.log(res);
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+        }
+      });
+    });
+    $("#lanTrue").click(function(){
+    // $('#year2020').css("background","green");
+    $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true",
+        success: function(res){
+          console.log(res);
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+        }
+      });
+    });
+     $("#lanFalse").click(function(){
+    // $('#year2020').css("background","green");
+    $(".carddiv").empty();
+   $.ajax({
+        dataType: "json",
+        url: "https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=false",
+        success: function(res){
+          console.log(res);
+            for(var i=0;i<res.length;i++) {
+              console.log(res[i].links.mission_patch);
+              const img = document.createElement('img');
+              var para = document.createElement("div");
+              var tag = document.createElement("h1");
+              var uls = document.createElement("ul");
+              var btn = document.createElement("button");
+              var node = document.createTextNode(res[i].mission_name + ' ' + '#' + res[i].flight_number); 
+              var node1 = document.createTextNode('mission_id: ' + res[i].mission_id + '\n');
+              var node2 = document.createTextNode('launch_year: ' + res[i].launch_year + '\n');
+              var node3 = document.createTextNode('Successful Launch: ' + res[i].launch_success + '\n');
+              var node4 = document.createTextNode('Successful Landing: ' + res[i].launch_landing + '\n');
+              var lis = document.createElement('li');
+              para.classList.add("col-md-3");
+              para.classList.add("card-bg");
+              para.appendChild(img).setAttribute('src', res[i].links.mission_patch);
+              img.classList.add("card__image");
+              para.appendChild(tag);
+              tag.appendChild(node); 
+              tag.classList.add("card__title");
+              para.appendChild(uls);
+              uls.appendChild(lis);
+              lis.appendChild(node1);
+              lis.appendChild(node2);
+              lis.appendChild(node3);
+              lis.appendChild(node4);
+              lis.classList.add("lis_style");
+              para.appendChild(btn);
+              btn.classList.add("card__cta");
+              // append to card__wrapper class
+              var content = document.querySelector('div.carddiv');
+              content.appendChild(para);
+            }
+        }
+      });
+    });
+</script>
+</body>
+</html>
